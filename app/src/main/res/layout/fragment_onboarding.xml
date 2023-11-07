@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.maxelfs.truthordare.viewmodels.OnboardingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.onboarding.OnboardingFragment"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="@string/truth_or_action"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/onboardingViewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/nextButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/PrimaryButton"
+            android:layout_marginBottom="38dp"
+            android:contentDescription="@string/lets_go"
+            android:onClick="@{() -> viewModel.nextPage()}"
+            app:layout_constraintBottom_toTopOf="@+id/page_two_indicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/next" />
+
+        <ImageView
+            android:id="@+id/page_one_indicator"
+            imagePageIndex="@{0}"
+            pageIndex="@{viewModel.currentPageIndex}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/first_page"
+            android:src="@drawable/ic_outline_circle_24"
+            app:layout_constraintBottom_toBottomOf="@+id/page_two_indicator"
+            app:layout_constraintEnd_toStartOf="@+id/page_two_indicator"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/page_two_indicator"
+            imagePageIndex="@{1}"
+            pageIndex="@{viewModel.currentPageIndex}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="80dp"
+            android:contentDescription="@string/second_page"
+            android:src="@drawable/ic_outline_circle_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/page_three_indicator"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/page_one_indicator" />
+
+        <ImageView
+            android:id="@+id/page_three_indicator"
+            imagePageIndex="@{2}"
+            pageIndex="@{viewModel.currentPageIndex}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/third_page"
+            android:src="@drawable/ic_outline_circle_24"
+            app:layout_constraintBottom_toBottomOf="@+id/page_two_indicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/page_two_indicator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

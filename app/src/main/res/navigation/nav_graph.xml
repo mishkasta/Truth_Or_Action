@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.maxelfs.truthordare.views.StartScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_packSelectionFragment"
+            app:destination="@id/packSelectionFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_languageSelectionFragment"
+            app:destination="@id/languageSelectionFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.maxelfs.truthordare.views.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_onboardingFragment_to_packSelectionFragment"
+            app:destination="@id/packSelectionFragment"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playersSetupFragment"
+        android:name="com.maxelfs.truthordare.views.PlayersSetupFragment"
+        android:label="PlayersSetupFragment">
+        <action
+            android:id="@+id/action_startGameFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.maxelfs.truthordare.views.GameFragment"
+        android:label="GameFragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_rateAppFragment"
+            app:destination="@id/rateAppFragment"
+            app:popUpTo="@id/playersSetupFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_packSelectionFragment"
+            app:destination="@id/packSelectionFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gameFragment_to_playersSetupFragment"
+            app:destination="@id/playersSetupFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/packSelectionFragment"
+        android:name="com.maxelfs.truthordare.views.PackSelectionFragment"
+        android:label="fragment_pack_selection"
+        tools:layout="@layout/fragment_pack_selection" >
+        <action
+            android:id="@+id/action_packSelectionFragment_to_startGameFragment"
+            app:destination="@id/playersSetupFragment" />
+        <action
+            android:id="@+id/action_packSelectionFragment_to_languageSelectionFragment"
+            app:destination="@id/languageSelectionFragment" />
+        <action
+            android:id="@+id/action_packSelectionFragment_to_rateAppFragment"
+            app:destination="@id/rateAppFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/languageSelectionFragment"
+        android:name="com.maxelfs.truthordare.views.languageselection.LanguageSelectionFragment"
+        android:label="LanguageSelectionFragment" >
+        <action
+            android:id="@+id/action_languageSelectionFragment_to_packSelectionFragment"
+            app:destination="@id/packSelectionFragment"
+            app:popUpTo="@id/languageSelectionFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_languageSelectionFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/languageSelectionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateAppFragment"
+        android:name="com.maxelfs.truthordare.views.RateAppFragment"
+        android:label="RateAppFragment" >
+        <action
+            android:id="@+id/action_rateAppFragment_to_startGameFragment"
+            app:destination="@id/playersSetupFragment"
+            app:popUpTo="@id/packSelectionFragment" />
+        <action
+            android:id="@+id/action_rateAppFragment_to_packSelectionFragment"
+            app:destination="@id/packSelectionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

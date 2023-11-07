@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.maxelfs.truthordare.viewmodels.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:background="@color/black">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@style/IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-15dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/back"
+            android:onClick="@{() -> viewModel.goBack()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/addPartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="@string/game"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/background_border_game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addPartText"
+            app:layout_constraintBottom_toTopOf="@+id/gameButtons">
+
+            <TextView
+                android:id="@+id/currentPlayerNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/opensans_semibold"
+                android:text="@{viewModel.currentPlayerName}"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Jane Doe" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="156dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                isVisible="@{!viewModel.isActivitySelected()}"
+                app:srcCompat="@drawable/img_quest_2"
+                android:contentDescription="@string/question_image" />
+
+            <TextView
+                android:id="@+id/activity_type_name"
+                isVisible="@{viewModel.isActivitySelected()}"
+                activityType="@{viewModel.selectedActivityType}"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_text_activity_name"
+                android:textAlignment="center"
+                android:fontFamily="@font/opensans"
+                android:textSize="18sp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginTop="17dp"
+                app:layout_constraintTop_toBottomOf="@+id/currentPlayerNameText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Truth" />
+
+            <TextView
+                android:id="@+id/actionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/opensans"
+                android:text="@{viewModel.actionText}"
+                android:textSize="18sp"
+                isVisible="@{viewModel.isActivitySelected()}"
+                android:textColor="#AFAFAF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_type_name"
+                tools:text="@string/lipsum" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gameButtons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/adView"
+            android:layout_marginBottom="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/selectActivityButtons"
+                isVisible="@{!viewModel.isActivitySelected()}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <Button
+                    android:id="@+id/truthButton"
+                    style="@style/PrimaryButton"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/select_truth"
+                    android:onClick="@{() -> viewModel.selectTruth()}"
+                    android:text="@string/truth"
+                    app:layout_constraintEnd_toStartOf="@+id/actionButton"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck" />
+
+                <Button
+                    android:id="@+id/actionButton"
+                    style="@style/PrimaryButtonBlack"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.selectAction()}"
+                    android:text="@string/action"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/truthButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/truthButton" />
+
+                <ImageButton
+                    android:id="@+id/randomActivityTypeButton"
+                    style="@style/OutlinedIconButton"
+                    android:contentDescription="@string/select_random_activity"
+                    android:onClick="@{() -> viewModel.selectRandom()}"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintTop_toBottomOf="@id/truthButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_dash" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/activitySelectedButtons"
+                isVisible="@{viewModel.isActivitySelected()}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <Button
+                    android:id="@+id/doneButton"
+                    style="@style/PrimaryButton"
+                    android:layout_height="wrap_content"
+                    android:text="@string/done"
+                    android:onClick="@{() -> viewModel.nextPlayer()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/changeActivityButton"
+                    style="@style/OutlinedIconButton"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="@string/change"
+                    android:onClick="@{() -> viewModel.changeAction()}"
+                    app:layout_constraintEnd_toStartOf="@+id/cancelActivityButton"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/doneButton"
+                    app:srcCompat="@drawable/ic_shuffle"
+                    tools:ignore="ImageContrastCheck" />
+
+                <ImageButton
+                    android:id="@+id/cancelActivityButton"
+                    style="@style/OutlinedIconButton"
+                    android:layout_marginStart="15dp"
+                    android:contentDescription="@string/cancel"
+                    android:onClick="@{() -> viewModel.nextPlayer()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/changeActivityButton"
+                    app:layout_constraintTop_toTopOf="@id/changeActivityButton"
+                    app:srcCompat="@drawable/ic_cancel_colorful"
+                    tools:ignore="ImageContrastCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:layout_constraintBottom_toBottomOf="parent"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:adUnitId="@string/gameBannerId" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

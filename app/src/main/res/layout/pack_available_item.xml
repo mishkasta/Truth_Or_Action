@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="pack"
+            type="com.maxelfs.truthordare.views.packs.PackViewModel" />
+        <variable
+            name="startGameClickListener"
+            type="com.maxelfs.truthordare.views.packs.PackClickListener" />
+    </data>
+
+    <LinearLayout
+        android:background="@drawable/background_border_language_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="6dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="@{() -> startGameClickListener.onClick(pack)}"
+        android:orientation="vertical"
+        tools:ignore="RtlSymmetry">
+
+        <ImageView
+            android:id="@+id/wing"
+            android:src="@drawable/wing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/packIcon"
+            packIcon="@{pack.pack.icon}"
+            android:layout_width="320dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="14dp"
+            android:contentDescription="@string/pack_icon"
+            tools:src="@drawable/light_pack" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:text="@{pack.name}"
+            android:textSize="22sp"
+            android:layout_marginTop="10dp"
+            tools:text="Insane 21+" />
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/opensans"
+            android:maxWidth="150sp"
+            android:text="@{pack.description}"
+            android:textAlignment="textStart"
+            android:textSize="14sp"
+            tools:text="Game without restrictions. Become closer to each other" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_arrow" />
+
+    </LinearLayout>
+</layout>

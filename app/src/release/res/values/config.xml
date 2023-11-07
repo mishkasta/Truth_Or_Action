@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="gameBannerId" type="string" translatable="false">ca-app-pub-1393730652614597/9540676653</item>
+    <item name="interstitialId" type="string" translatable="false">ca-app-pub-1393730652614597/2153680224</item>
+</resources>

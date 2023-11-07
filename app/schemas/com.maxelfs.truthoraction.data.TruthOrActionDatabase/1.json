@@ -1,0 +1,360 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "9124ab6c3413f303f929da580a009646",
+    "entities": [
+      {
+        "tableName": "packs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`packId` INTEGER NOT NULL, `isPaid` INTEGER NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `iconId` INTEGER NOT NULL, `colorId` INTEGER NOT NULL, `sortOrder` INTEGER NOT NULL, PRIMARY KEY(`packId`))",
+        "fields": [
+          {
+            "fieldPath": "packId",
+            "columnName": "packId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPaid",
+            "columnName": "isPaid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "iconId",
+            "columnName": "iconId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "colorId",
+            "columnName": "colorId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sortOrder",
+            "columnName": "sortOrder",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "packId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "packTranslations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`packTranslationId` INTEGER NOT NULL, `translatedPackId` INTEGER NOT NULL, `localeId` INTEGER NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, PRIMARY KEY(`packTranslationId`), FOREIGN KEY(`translatedPackId`) REFERENCES `packs`(`packId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "packTranslationId",
+            "columnName": "packTranslationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "translatedPackId",
+            "columnName": "translatedPackId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localeId",
+            "columnName": "localeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "packTranslationId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "IX_packTranslations_translatedPackId",
+            "unique": false,
+            "columnNames": [
+              "translatedPackId"
+            ],
+            "orders": [
+              "ASC"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `IX_packTranslations_translatedPackId` ON `${TABLE_NAME}` (`translatedPackId` ASC)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "packs",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "translatedPackId"
+            ],
+            "referencedColumns": [
+              "packId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "activities",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`activityId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `parentPackId` INTEGER NOT NULL, `typeId` INTEGER NOT NULL, `genderId` INTEGER NOT NULL, `text` TEXT, FOREIGN KEY(`parentPackId`) REFERENCES `packs`(`packId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "activityId",
+            "columnName": "activityId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentPackId",
+            "columnName": "parentPackId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "typeId",
+            "columnName": "typeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "genderId",
+            "columnName": "genderId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "activityId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "IX_activities_parentPackId",
+            "unique": false,
+            "columnNames": [
+              "parentPackId"
+            ],
+            "orders": [
+              "ASC"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `IX_activities_parentPackId` ON `${TABLE_NAME}` (`parentPackId` ASC)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "packs",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "parentPackId"
+            ],
+            "referencedColumns": [
+              "packId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "activityTranslations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`translationId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `translatedActivityId` INTEGER NOT NULL, `localeId` INTEGER NOT NULL, `text` TEXT NOT NULL, FOREIGN KEY(`translatedActivityId`) REFERENCES `activities`(`activityId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "translationId",
+            "columnName": "translationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "translatedActivityId",
+            "columnName": "translatedActivityId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localeId",
+            "columnName": "localeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "translationId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "IX_activityTranslations_translatedActivityId",
+            "unique": false,
+            "columnNames": [
+              "translatedActivityId"
+            ],
+            "orders": [
+              "ASC"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `IX_activityTranslations_translatedActivityId` ON `${TABLE_NAME}` (`translatedActivityId` ASC)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "activities",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "translatedActivityId"
+            ],
+            "referencedColumns": [
+              "activityId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "variables",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`variableId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `parentActivityId` INTEGER NOT NULL, `typeId` INTEGER NOT NULL, `placeholder` TEXT, `randomNumberMinValue` INTEGER, `randomNumberMaxValue` INTEGER, `genderId` INTEGER, `localeId` INTEGER, `localizedValue` TEXT, FOREIGN KEY(`parentActivityId`) REFERENCES `activities`(`activityId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "variableId",
+            "columnName": "variableId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentActivityId",
+            "columnName": "parentActivityId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "typeId",
+            "columnName": "typeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placeholder",
+            "columnName": "placeholder",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "randomNumberMinValue",
+            "columnName": "randomNumberMinValue",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "randomNumberMaxValue",
+            "columnName": "randomNumberMaxValue",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "genderId",
+            "columnName": "genderId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "localeId",
+            "columnName": "localeId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "localizedValue",
+            "columnName": "localizedValue",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "variableId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "IX_variables_parentActivityId",
+            "unique": false,
+            "columnNames": [
+              "parentActivityId"
+            ],
+            "orders": [
+              "ASC"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `IX_variables_parentActivityId` ON `${TABLE_NAME}` (`parentActivityId` ASC)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "activities",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "parentActivityId"
+            ],
+            "referencedColumns": [
+              "activityId"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9124ab6c3413f303f929da580a009646')"
+    ]
+  }
+}

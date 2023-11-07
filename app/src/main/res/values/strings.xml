@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Truth Or Action</string>
+    <string name="truth_or_action">Truth Or Action</string>
+    <string name="start">Start</string>
+    <string name="add_player">Add Player</string>
+    <string name="player_name">Player name</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="game">Game</string>
+    <string name="truth">Truth</string>
+    <string name="action">Action</string>
+    <string name="change">Change</string>
+    <string name="lets_go">Let\'s go!</string>
+    <string name="first_page">First page</string>
+    <string name="second_page">Second page</string>
+    <string name="third_page">Third page</string>
+    <string name="onboarding_page_1">Play with all your friends or in pair</string>
+    <string name="onboarding_page_2">Add the participants and press \"Play\"</string>
+    <string name="onboarding_page_3">Answer the questions or do actions. Don\'t cheat if you want to game be exciting!</string>
+    <string name="current_locale">en</string>
+    <string name="next">Next</string>
+    <string name="onboarding_image">Onboarding Image</string>
+    <string name="players">Players</string>
+    <string name="back">Back</string>
+    <string name="gender">Gender</string>
+    <string name="question_image">Question image</string>
+    <string name="select_random_activity">Select random activity</string>
+    <string name="done">Done</string>
+    <string name="lipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</string>
+    <string name="there_is_no_activity_for_you">There is no activity for you. So you\'re getting another one: leave the bad feedback about the app in the Google Play</string>
+    <string name="select_the_game_mode">Select the game (b)mode(/b)</string>
+    <string name="pack_icon">Pack icon</string>
+    <string name="locked">Locked</string>
+    <string name="close_button">Close</string>
+    <string name="select_language">Select Language</string>
+    <string name="english_language" translatable="false">English</string>
+    <string name="russian_language" translatable="false">Русский</string>
+    <string name="russian_code" translatable="false">RU</string>
+    <string name="english_code" translatable="false">EN</string>
+    <string name="rate_app">Rate App</string>
+    <string name="we_need_to_know_your_feelings_about_that_app">We need to know your feelings about that app</string>
+    <string name="place_feedback">Place feedback</string>
+    <string name="not_unique_name">Please set another name</string>
+    <string name="select_truth">Select truth</string>
+    <string name="add_participants">Add (b)participants(/b)</string>
+    <string name="set_gender">Set gender</string>
+    <string name="gender_male_short">M</string>
+    <string name="gender_female_short">F</string>
+    <string name="gender_not_set_short">\?</string>
+    <string name="empty_name">The name shouldn\'t be empty</string>
+</resources>

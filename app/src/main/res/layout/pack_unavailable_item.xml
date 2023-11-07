@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="pack"
+            type="com.maxelfs.truthordare.views.packs.PackViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        packColor="@{pack.pack.color}"
+        tools:ignore="RtlSymmetry">
+
+        <ImageView
+            android:id="@+id/wing"
+            android:src="@drawable/wing"
+            android:layout_marginStart="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/packIcon"
+            tools:src="@drawable/ic_pack_cake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            packIcon="@{pack.pack.icon}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/pack_icon" />
+
+        <ImageView
+            android:id="@+id/overlay"
+            android:src="@drawable/overlay_pack_unavailable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="55dp"
+            android:src="@drawable/ic_lock"
+            android:contentDescription="@string/locked" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="20dp"
+            android:text="@{pack.name}"
+            android:textSize="16sp"
+            tools:text="Insane 21+"
+            android:fontFamily="@font/opensans_semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/descriptionText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameText"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/silver_chalice"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="17dp"
+            android:textAlignment="textEnd"
+            android:fontFamily="@font/opensans_semibold"
+            android:maxWidth="150sp"
+            android:textSize="12sp"
+            android:text="@{pack.description}"
+            tools:text="Game without restrictions. Become closer to each other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

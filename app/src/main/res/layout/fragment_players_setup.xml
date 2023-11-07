@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.maxelfs.truthordare.viewmodels.PlayersSetupViewModel" />
+
+        <import type="com.maxelfs.truthordare.models.Gender" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@style/IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back"
+            android:onClick="@{() -> viewModel.goBack()}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/addParticipantsText"
+            richText="@{@string/add_participants}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/opensans"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Add participants" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            isVisible="@{viewModel.isEditing}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/background_players"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addParticipantsText">
+
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/IconButton"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_close"
+                android:onClick="@{() -> viewModel.cancelEditing()}"
+                android:contentDescription="@string/close_button" />
+
+            <TextView
+                android:id="@+id/playerNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_name"
+                android:fontFamily="@font/opensans"
+                android:layout_marginTop="35dp"
+                android:labelFor="@id/nameEdit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/background_border_input"
+                android:minHeight="50dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playerNameText"
+                tools:text="Ann Kravchenko"
+                android:text="@={viewModel.editingPlayerName}"
+                android:autofillHints="name"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:id="@+id/setGenderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/set_gender"
+                android:fontFamily="@font/opensans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameEdit" />
+
+            <TextView
+                android:id="@+id/maleTextClickable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensans"
+                android:layout_marginEnd="5dp"
+                android:height="30dp"
+                android:background="@drawable/background_button_outlined"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                targetGender="@{viewModel.editingPlayerGender}"
+                matchToGender="@{Gender.MALE}"
+                matchBackground="@{@drawable/background_gender_male}"
+                defaultBackground="@{@drawable/background_gender_default}"
+                android:onClick="@{() -> viewModel.setPlayerGender(Gender.MALE)}"
+                app:layout_constraintEnd_toStartOf="@+id/femaleTextClickable"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/setGenderText"
+                android:text="@string/gender_male_short" />
+
+            <TextView
+                android:id="@+id/femaleTextClickable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
+                android:height="30dp"
+                android:fontFamily="@font/opensans"
+                android:background="@drawable/background_button_outlined"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                targetGender="@{viewModel.editingPlayerGender}"
+                matchToGender="@{Gender.FEMALE}"
+                matchBackground="@{@drawable/background_gender_female}"
+                defaultBackground="@{@drawable/background_gender_default}"
+                android:onClick="@{() -> viewModel.setPlayerGender(Gender.FEMALE)}"
+                app:layout_constraintBaseline_toBaselineOf="@id/maleTextClickable"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/maleTextClickable"
+                android:text="@string/gender_female_short" />
+
+            <Button
+                android:id="@+id/saveButton"
+                style="@style/ButtonBase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="34dp"
+                android:background="@drawable/background_button_primary_green"
+                android:minWidth="200dp"
+                android:text="@string/save"
+                android:onClick="@{() -> viewModel.completeEditing()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/femaleTextClickable" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addPlayersBorder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="73dp"
+            android:layout_marginTop="50dp"
+            android:visibility="gone"
+            isVisible="@{!viewModel.isEditing}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addParticipantsText">
+
+            <TextView
+                android:id="@+id/playersText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/players"
+                android:fontFamily="@font/opensans"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/players"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:minWidth="50dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/addPlayersPanel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playersText"
+                tools:itemCount="4"
+                tools:listitem="@layout/player_item" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addPlayersPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/startButton"
+                android:background="@android:color/transparent">
+
+                <ImageButton
+                    android:id="@+id/addPlayerButton"
+                    style="@style/OutlinedIconButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:contentDescription="@string/add_player"
+                    android:onClick="@{() -> viewModel.startPlayerCreation()}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:srcCompat="@drawable/ic_plus_sign" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/startButton"
+                style="@style/PrimaryButton"
+                android:enabled="@{viewModel.canStartGame}"
+                android:onClick="@{() -> viewModel.startGame()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/start" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
