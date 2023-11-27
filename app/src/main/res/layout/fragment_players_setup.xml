@@ -6,9 +6,9 @@
     <data>
         <variable
             name="viewModel"
-            type="com.maxelfs.truthordare.viewmodels.PlayersSetupViewModel" />
+            type="com.maxelfs.truthanddare.viewmodels.PlayersSetupViewModel" />
 
-        <import type="com.maxelfs.truthordare.models.Gender" />
+        <import type="com.maxelfs.truthanddare.models.Gender" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

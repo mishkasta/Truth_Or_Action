@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.maxelfs.truthordare.views.StartScreenFragment"
+        android:name="com.maxelfs.truthanddare.views.StartScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen">
         <action
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="com.maxelfs.truthordare.views.onboarding.OnboardingFragment"
+        android:name="com.maxelfs.truthanddare.views.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/playersSetupFragment"
-        android:name="com.maxelfs.truthordare.views.PlayersSetupFragment"
+        android:name="com.maxelfs.truthanddare.views.PlayersSetupFragment"
         android:label="PlayersSetupFragment">
         <action
             android:id="@+id/action_startGameFragment_to_gameFragment"
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.maxelfs.truthordare.views.GameFragment"
+        android:name="com.maxelfs.truthanddare.views.GameFragment"
         android:label="GameFragment" >
         <action
             android:id="@+id/action_gameFragment_to_rateAppFragment"
@@ -68,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/packSelectionFragment"
-        android:name="com.maxelfs.truthordare.views.PackSelectionFragment"
+        android:name="com.maxelfs.truthanddare.views.PackSelectionFragment"
         android:label="fragment_pack_selection"
         tools:layout="@layout/fragment_pack_selection" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/languageSelectionFragment"
-        android:name="com.maxelfs.truthordare.views.languageselection.LanguageSelectionFragment"
+        android:name="com.maxelfs.truthanddare.views.languageselection.LanguageSelectionFragment"
         android:label="LanguageSelectionFragment" >
         <action
             android:id="@+id/action_languageSelectionFragment_to_packSelectionFragment"
@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/rateAppFragment"
-        android:name="com.maxelfs.truthordare.views.RateAppFragment"
+        android:name="com.maxelfs.truthanddare.views.RateAppFragment"
         android:label="RateAppFragment" >
         <action
             android:id="@+id/action_rateAppFragment_to_startGameFragment"

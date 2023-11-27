@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.maxelfs.truthordare">
+    package="com.maxelfs.truthanddare">
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
     <application
         android:allowBackup="true"
-        android:name="com.maxelfs.truthordare.TruthOrActionApplication"
+        android:name="com.maxelfs.truthanddare.TruthOrActionApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -21,7 +21,7 @@
 
 
         <activity
-            android:name="com.maxelfs.truthordare.MainActivity"
+            android:name="com.maxelfs.truthanddare.MainActivity"
             android:exported="true"
             android:configChanges="orientation"
             android:screenOrientation="portrait"

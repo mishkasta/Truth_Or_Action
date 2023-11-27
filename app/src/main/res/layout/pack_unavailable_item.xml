@@ -5,7 +5,7 @@
     <data>
         <variable
             name="pack"
-            type="com.maxelfs.truthordare.views.packs.PackViewModel" />
+            type="com.maxelfs.truthanddare.views.packs.PackViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

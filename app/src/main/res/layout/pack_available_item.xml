@@ -6,10 +6,10 @@
     <data>
         <variable
             name="pack"
-            type="com.maxelfs.truthordare.views.packs.PackViewModel" />
+            type="com.maxelfs.truthanddare.views.packs.PackViewModel" />
         <variable
             name="startGameClickListener"
-            type="com.maxelfs.truthordare.views.packs.PackClickListener" />
+            type="com.maxelfs.truthanddare.views.packs.PackClickListener" />
     </data>
 
     <LinearLayout

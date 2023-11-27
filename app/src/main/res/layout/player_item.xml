@@ -5,15 +5,15 @@
     <data>
         <variable
             name="player"
-            type="com.maxelfs.truthordare.models.Player" />
+            type="com.maxelfs.truthanddare.models.Player" />
 
         <variable
             name="updateClickListener"
-            type="com.maxelfs.truthordare.views.players.PlayerClickListener" />
+            type="com.maxelfs.truthanddare.views.players.PlayerClickListener" />
 
         <variable
             name="deleteClickListener"
-            type="com.maxelfs.truthordare.views.players.PlayerClickListener" />
+            type="com.maxelfs.truthanddare.views.players.PlayerClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
