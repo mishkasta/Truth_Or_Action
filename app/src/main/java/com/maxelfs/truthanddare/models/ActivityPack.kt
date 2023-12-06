@@ -11,7 +11,8 @@ data class ActivityPack(
     val description: String,
     val iconId: Int,
     val colorId: Int,
-    val sortOrder: Int
+    val sortOrder: Int,
+    val type: Int
 ) {
     val icon: ActivityPackIcon
     get() = ActivityPackIcon.values().single { it.id == iconId }

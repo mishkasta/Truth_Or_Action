@@ -12,8 +12,8 @@ import androidx.databinding.BindingAdapter
 fun setRichText(
     textView: TextView,
     richText: String) {
-    val words = richText.split(Regex("\\s"))
-    val finalWords = mutableListOf<CharSequence>()
+    val words = richText.replace("(b)","\n");
+    /*val finalWords = mutableListOf<CharSequence>()
     for (word in words) {
         val regex = Regex("\\(b\\)(.*)\\(/b\\)")
         if (regex.matches(word)) {
@@ -21,11 +21,11 @@ fun setRichText(
             val value = match!!.groups[1]!!.value
 
             val spanned = SpannableString(value)
-           /* spanned.setSpan(BackgroundColorSpan(
+           *//* spanned.setSpan(BackgroundColorSpan(
                 Color.parseColor("#A847E4")),
                 0,
                 spanned.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)*/
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)*//*
 
             finalWords.add(spanned)
         } else {
@@ -37,9 +37,9 @@ fun setRichText(
     for (word in finalWords) {
         sb.append(word)
         sb.append(" ")
-    }
+    }*/
 
-    textView.text = sb.trim()
+    textView.text = words.trim()
 }
 
 @BindingAdapter(value = [ "foregroundedText", "foregroundColor" ], requireAll = false)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
-    <item android:drawable="@drawable/background_main"/>
+    <item android:drawable="@drawable/background_splash_full_2"/>
 
-    <item
-        android:drawable="@drawable/background_splash"
+    <!--<item
+        android:drawable="@drawable/background_splash_full_2"
         android:gravity="bottom">
-    </item>
+    </item>-->
 </layer-list>

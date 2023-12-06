@@ -29,7 +29,7 @@
     <string name="done">Готово</string>
     <string name="lipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</string>
     <string name="there_is_no_activity_for_you">У нас не нашлось активности для тебя. Так что лови вот такое задание: поставь этому приложению плохую оценку в Google Play</string>
-    <string name="select_the_game_mode">Выберите (b)режим(/b) игры</string>
+    <string name="select_the_game_mode">Выберите (b)режим игры</string>
     <string name="pack_icon">Иконка режима</string>
     <string name="locked">Заблокировано</string>
     <string name="close_button">Кнопка закрыть</string>
@@ -45,4 +45,5 @@
     <string name="gender_female_short">Ж</string>
     <string name="gender_not_set_short">\?</string>
     <string name="empty_name">Имя не должно быть пустым</string>
+    <string name="play_market">Похожее в Play Market</string>
 </resources>

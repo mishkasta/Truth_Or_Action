@@ -38,26 +38,26 @@
         <ImageView
             android:id="@+id/packIcon"
             packIcon="@{pack.pack.icon}"
-            android:layout_width="320dp"
-            android:layout_height="170dp"
-            android:layout_marginStart="14dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
             android:contentDescription="@string/pack_icon"
-            tools:src="@drawable/light_pack" />
+            tools:src="@drawable/pack_1" />
 
         <TextView
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:fontFamily="@font/opensans_semibold"
+            android:fontFamily="@font/druk_wide_cyr_medium"
             android:text="@{pack.name}"
-            android:textSize="22sp"
+            android:textSize="15sp"
             android:layout_marginTop="10dp"
-            tools:text="Insane 21+" />
+            tools:text="Простая игра" />
 
         <TextView
             android:id="@+id/descriptionText"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="15dp"
@@ -66,8 +66,8 @@
             android:maxWidth="150sp"
             android:text="@{pack.description}"
             android:textAlignment="textStart"
-            android:textSize="14sp"
-            tools:text="Game without restrictions. Become closer to each other" />
+            android:textSize="12sp"
+            tools:text="Отвечайте на простые вопросы или совершайте действия, будьте честными, что бы было интересно играть." />
 
         <ImageView
             android:id="@+id/arrow"

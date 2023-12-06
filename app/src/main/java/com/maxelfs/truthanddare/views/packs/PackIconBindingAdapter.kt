@@ -15,9 +15,9 @@ fun setPackIcon(
 }
 
 private fun getIconId(packIcon: ActivityPackIcon) = when (packIcon) {
-    ActivityPackIcon.CAKE -> R.drawable.light_18
-    ActivityPackIcon.ROCKET -> R.drawable.ic_light_pack
-    ActivityPackIcon.PARTY -> R.drawable.party
+    ActivityPackIcon.CAKE -> R.drawable.pack_3
+    ActivityPackIcon.ROCKET -> R.drawable.pack_1
+    ActivityPackIcon.PARTY -> R.drawable.pack_2
     ActivityPackIcon.EXPLOSION -> R.drawable.ic_pack_explosion
     ActivityPackIcon.DATE -> R.drawable.ic_pack_date
     ActivityPackIcon.HEART -> R.drawable.ic_pack_heart

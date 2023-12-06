@@ -29,10 +29,11 @@ data class ActivityPackTranslation(
     val translatedPackId: Int,
     val localeId: Int,
     val name: String,
-    val description: String
+    val description: String,
+    val type: Int
 ) {
-    constructor(name: String, description: String)
-            : this(0, 0, Locale.EN.id, name, description)
+    constructor(name: String, description: String, type: Int)
+            : this(0, 0, Locale.EN.id, name, description, type)
 
     val locale: Locale
         get() = Locale.values().single { it.id == localeId }

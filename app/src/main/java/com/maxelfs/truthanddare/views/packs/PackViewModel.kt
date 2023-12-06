@@ -8,24 +8,28 @@ import com.maxelfs.truthanddare.models.Locale
 
 class PackViewModel constructor(
     private val _pack: ActivityPackWithIncludes,
-    private val _appSettingService: AppSettingsService) {
+    private val _appSettingService: AppSettingsService
+) {
     val pack: ActivityPack
-    get() = _pack.pack
+        get() = _pack.pack
 
     val isAvailable: Boolean
         get() = !pack.isPaid
 
     val name: String
-    get() = getCurrentLocaleTranslation().name
+        get() = getCurrentLocaleTranslation().name
 
     val description: String
-    get() = getCurrentLocaleTranslation().description
+        get() = getCurrentLocaleTranslation().description
+
+    val type: Int
+        get() = getCurrentLocaleTranslation().type
 
 
-    private fun getCurrentLocaleTranslation() : ActivityPackTranslation {
+    private fun getCurrentLocaleTranslation(): ActivityPackTranslation {
         val currentLocale = _appSettingService.getCurrentLocale()
         if (currentLocale == Locale.EN) {
-            return ActivityPackTranslation(name = pack.name, description = pack.description)
+            return ActivityPackTranslation(name = pack.name, description = pack.description, type = pack.type)
         }
 
         return _pack.translations.single { it.locale == currentLocale }
