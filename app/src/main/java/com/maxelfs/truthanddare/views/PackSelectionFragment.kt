@@ -18,6 +18,7 @@ class PackSelectionFragment : Fragment() {
     private lateinit var _binding: FragmentPackSelectionBinding
     private lateinit var _viewModel: PackSelectionViewModel
     private lateinit var _packAdapter: PackAdapter
+    private lateinit var _packAdapterHorizontal: PackAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +32,12 @@ class PackSelectionFragment : Fragment() {
             pack -> _viewModel.startGame(pack.pack)
         }
 
+
         _packAdapter = PackAdapter(startGameClickListener)
+        _packAdapterHorizontal = PackAdapter(startGameClickListener)
+
         _binding.packs.adapter = _packAdapter
+        _binding.packsHorizontal.adapter = _packAdapterHorizontal
 
         return _binding.root
     }
@@ -42,6 +47,10 @@ class PackSelectionFragment : Fragment() {
 
         _viewModel.packs.observe(viewLifecycleOwner) {
             _packAdapter.submitList(it)
+        }
+
+        _viewModel.packsHorizontal.observe(viewLifecycleOwner){
+            _packAdapterHorizontal.submitList(it)
         }
 
         _viewModel.navigateToPlayerSelectionEvent.observe(viewLifecycleOwner) {

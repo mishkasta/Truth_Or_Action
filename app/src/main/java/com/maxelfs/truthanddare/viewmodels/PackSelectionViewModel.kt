@@ -16,12 +16,17 @@ class PackSelectionViewModel @Inject constructor(
     private val _appSettingsService: AppSettingsService
 ) : ViewModel()  {
     private val _packs = MutableLiveData<List<ActivityPackWithIncludes>>()
+    private val _packsHorizontal = MutableLiveData<List<ActivityPackWithIncludes>>()
     private val _navigateToPlayerSelectionEvent = MutableLiveData<Boolean>()
     private val _navigateToLanguageSelectionEvent = MutableLiveData<Boolean>()
     private val _navigateToRateAppEvent = MutableLiveData<Boolean>()
 
 
     val packs: LiveData<List<PackViewModel>> = Transformations.map(_packs) {
+        it.map { pack -> PackViewModel(pack, _appSettingsService) }
+    }
+
+    val packsHorizontal: LiveData<List<PackViewModel>> = Transformations.map(_packsHorizontal) {
         it.map { pack -> PackViewModel(pack, _appSettingsService) }
     }
 
@@ -83,7 +88,9 @@ class PackSelectionViewModel @Inject constructor(
     }
 
     private suspend fun refreshPacksAsync() {
-        val packs = _packService.getPacksAsync()
+        val packs = _packService.getPacksAsync(1)
+        val packsHorizontal = _packService.getPacksAsync(2)
         _packs.value = packs.sortedBy { it.pack.sortOrder }
+        _packsHorizontal.value = packsHorizontal.sortedBy { it.pack.sortOrder }
     }
 }

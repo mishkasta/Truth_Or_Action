@@ -9,9 +9,11 @@ import javax.inject.Inject
 class ActivityPackRepositoryImpl @Inject constructor(
     private val _activityPackDao : ActivityPackDao) : ActivityPackRepository {
     private val _context = Dispatchers.IO
-    override suspend fun getPacksWithIncludesAsync(): List<ActivityPackWithIncludes> {
+    override suspend fun getPacksWithIncludesAsync(type: Int): List<ActivityPackWithIncludes> {
         return withContext(_context) {
-            _activityPackDao.getAll()
+            _activityPackDao.getAll(type)
         }
     }
+
+
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pack"
+            type="com.maxelfs.truthanddare.views.packs.PackViewModel" />
+
+        <variable
+            name="startGameClickListener"
+            type="com.maxelfs.truthanddare.views.packs.PackClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background_border_language_selector"
+        android:onClick="@{() -> startGameClickListener.onClick(pack)}"
+        android:orientation="horizontal"
+        android:paddingTop="17dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp"
+        android:layout_marginStart="20dp"
+        tools:ignore="RtlSymmetry">
+
+        <ImageView
+            android:id="@+id/wing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wing"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/packIcon"
+            packIcon="@{pack.pack.icon}"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="13dp"
+            android:contentDescription="@string/pack_icon"
+            tools:src="@drawable/pack_1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/druk_wide_cyr_medium"
+                android:text="@{pack.name}"
+                android:textSize="13sp"
+                tools:text="Легкий" />
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/opensans"
+                android:maxWidth="150sp"
+                android:text="@{pack.description}"
+                android:textAlignment="textStart"
+                android:textSize="10sp"
+                tools:text="Подборка вопросов и действий для быстрой игры." />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ic_arrow"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </LinearLayout>
+</layout>

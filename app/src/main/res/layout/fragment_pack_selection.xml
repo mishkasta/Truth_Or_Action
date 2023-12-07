@@ -43,10 +43,28 @@
                 android:padding="1dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/packs"
+                app:layout_constraintBottom_toTopOf="@+id/packs_horizontal"
                 android:onClick="@{() -> viewModel.navigateToLanguageSelection()}"
                 localeToCode="@{viewModel.currentLocale}"
                 tools:text="EN" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/packs_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="40dp"
+                android:minWidth="50dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/selectGameModeText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/pack_available_item_horizontal"
+                tools:itemCount="3" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/packs"
@@ -59,11 +77,13 @@
                 android:minWidth="50dp"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/selectGameModeText"
+                app:layout_constraintTop_toBottomOf="@+id/packs_horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:listitem="@layout/pack_available_item"
                 tools:itemCount="3" />
+
+
 
             <TextView
                 android:id="@+id/similarContainer"

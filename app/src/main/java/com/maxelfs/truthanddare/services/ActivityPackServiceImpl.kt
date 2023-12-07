@@ -11,8 +11,8 @@ class ActivityPackServiceImpl @Inject constructor(
     private val _packRepository: ActivityPackRepository,
     private val _appSettingsService: AppSettingsService
 ) : ActivityPackService {
-    override suspend fun getPacksAsync(): List<ActivityPackWithIncludes> {
-        return _packRepository.getPacksWithIncludesAsync()
+    override suspend fun getPacksAsync(type:  Int): List<ActivityPackWithIncludes> {
+        return _packRepository.getPacksWithIncludesAsync(type)
     }
 
     override fun selectPack(pack: ActivityPack) {

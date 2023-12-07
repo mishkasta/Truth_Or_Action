@@ -4,7 +4,7 @@ import com.maxelfs.truthanddare.models.ActivityPack
 import com.maxelfs.truthanddare.models.ActivityPackWithIncludes
 
 interface ActivityPackService {
-    suspend fun getPacksAsync(): List<ActivityPackWithIncludes>
+    suspend fun getPacksAsync(type:  Int): List<ActivityPackWithIncludes>
 
     fun selectPack(pack: ActivityPack)
 

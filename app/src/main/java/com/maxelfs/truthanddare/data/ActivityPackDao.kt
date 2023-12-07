@@ -8,6 +8,8 @@ import com.maxelfs.truthanddare.models.ActivityPackWithIncludes
 @Dao
 interface ActivityPackDao {
     @Transaction
-    @Query("SELECT * FROM packs")
-    fun getAll() : List<ActivityPackWithIncludes>
+    @Query("SELECT * FROM packs WHERE type = :type")
+    fun getAll(type: Int) : List<ActivityPackWithIncludes>
+
+
 }

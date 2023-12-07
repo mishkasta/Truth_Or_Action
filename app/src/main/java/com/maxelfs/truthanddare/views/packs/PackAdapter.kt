@@ -7,6 +7,9 @@ import com.maxelfs.truthanddare.views.ViewHolderBase
 
 private const val PACK_AVAILABLE = 1
 private const val PACK_UNAVAILABLE = 2
+private const val PACK_HORIZONTAL = 3
+
+
 
 @Suppress("UNCHECKED_CAST")
 class PackAdapter constructor(
@@ -16,6 +19,7 @@ class PackAdapter constructor(
         return when (viewType) {
             PACK_AVAILABLE -> AvailablePackViewHolder.from(parent, _startGameClickListener)
             PACK_UNAVAILABLE -> UnavailablePackViewHolder.from(parent)
+            PACK_HORIZONTAL -> HorizontalPackViewHolder.from(parent, _startGameClickListener)
             else -> throw ClassCastException("Unknown viewType $viewType")
         }
     }
@@ -29,10 +33,9 @@ class PackAdapter constructor(
     override fun getItemViewType(position: Int): Int {
         val pack = getItem(position)
 
-        return if (pack.isAvailable) {
-            PACK_AVAILABLE
-        } else {
-            PACK_UNAVAILABLE
-        }
+        return if(pack.isAvailable && pack.type == 1) PACK_AVAILABLE
+        else if(pack.isAvailable && pack.type == 2) PACK_HORIZONTAL
+        else PACK_UNAVAILABLE
+
     }
 }
