@@ -21,6 +21,9 @@ class PackSelectionViewModel @Inject constructor(
     private val _navigateToLanguageSelectionEvent = MutableLiveData<Boolean>()
     private val _navigateToRateAppEvent = MutableLiveData<Boolean>()
 
+    private val _appSelectToMarketFirst = MutableLiveData<Boolean>()
+    private val _appSelectToMarketSecond = MutableLiveData<Boolean>()
+
 
     val packs: LiveData<List<PackViewModel>> = Transformations.map(_packs) {
         it.map { pack -> PackViewModel(pack, _appSettingsService) }
@@ -35,6 +38,9 @@ class PackSelectionViewModel @Inject constructor(
     val navigateToLanguageSelectionEvent: LiveData<Boolean> = _navigateToLanguageSelectionEvent
 
     val navigateToRateAppEvent: LiveData<Boolean> = _navigateToRateAppEvent
+
+    val appSelectToMarketFirst: LiveData<Boolean> = _appSelectToMarketFirst
+    val appSelectToMarketSecond: LiveData<Boolean> = _appSelectToMarketSecond
 
     val currentLocale: Locale = _appSettingsService.getCurrentLocale()
 
@@ -74,6 +80,14 @@ class PackSelectionViewModel @Inject constructor(
 
     fun navigateToRateApp() {
         _navigateToRateAppEvent.value = true
+    }
+
+    fun appSelectToMarketFirst() {
+        _appSelectToMarketFirst.value = true
+    }
+
+    fun appSelectToMarketSecond() {
+        _appSelectToMarketSecond.value = true
     }
 
     fun onNavigatedToRateApp() {

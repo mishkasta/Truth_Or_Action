@@ -1,5 +1,8 @@
 package com.maxelfs.truthanddare.views
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -79,6 +82,30 @@ class PackSelectionFragment : Fragment() {
                 findNavController().navigate(direction)
 
                 _viewModel.onNavigatedToRateApp()
+            }
+        }
+
+        _viewModel.appSelectToMarketFirst.observe(viewLifecycleOwner) {
+            if (it) {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.maxelfs.truthordare"))
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.maxelfs.truthordare"))
+                    startActivity(intent)
+                }
+            }
+        }
+
+        _viewModel.appSelectToMarketSecond.observe(viewLifecycleOwner) {
+            if (it) {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.maxelfs.truthoraction"))
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.maxelfs.truthoraction"))
+                    startActivity(intent)
+                }
             }
         }
 

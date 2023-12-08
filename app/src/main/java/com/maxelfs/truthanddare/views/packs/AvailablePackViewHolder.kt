@@ -12,6 +12,7 @@ internal class AvailablePackViewHolder private constructor(
     override fun bind(item: PackViewModel, itemsCount: Int) {
         _binding.pack = item
         _binding.startGameClickListener = _startGameClickListener
+
     }
 
 

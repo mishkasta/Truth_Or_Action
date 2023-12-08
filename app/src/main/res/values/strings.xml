@@ -9,6 +9,7 @@
     <string name="game">Game</string>
     <string name="truth">Truth</string>
     <string name="action">Action</string>
+    <string name="developers_title">The application is developed \nby a friendly association</string>
     <string name="change">Change</string>
     <string name="lets_go">Let\'s go!</string>
     <string name="first_page">First page</string>
@@ -42,7 +43,7 @@
     <string name="place_feedback">Place feedback</string>
     <string name="not_unique_name">Please set another name</string>
     <string name="select_truth">Select truth</string>
-    <string name="add_participants">Add (b)participants(/b)</string>
+    <string name="add_participants">Add participants</string>
     <string name="set_gender">Set gender</string>
     <string name="gender_male_short">M</string>
     <string name="gender_female_short">F</string>

@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        android:background="@drawable/background_main_large">
 
         <ImageButton
             android:id="@+id/backButton"
@@ -34,10 +34,11 @@
             richText="@{@string/add_participants}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:textSize="16sp"
-            android:fontFamily="@font/opensans"
+            android:layout_marginTop="45dp"
+            android:textSize="22sp"
+            android:fontFamily="@font/druk_wide_cyr_medium"
             android:layout_marginEnd="20dp"
+            android:gravity="end"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Add participants" />
@@ -52,6 +53,7 @@
             android:background="@drawable/background_players"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/addParticipantsText">
 
             <ImageButton
@@ -184,7 +186,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="73dp"
             android:layout_marginTop="50dp"
-            android:visibility="gone"
+            android:visibility="visible"
             isVisible="@{!viewModel.isEditing}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -196,10 +198,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/players"
-                android:fontFamily="@font/opensans"
+                android:fontFamily="@font/druk_wide_cyr_medium"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/players"
@@ -228,7 +229,7 @@
 
                 <ImageButton
                     android:id="@+id/addPlayerButton"
-                    style="@style/OutlinedIconButton"
+                    style="@style/WithOutlinedIconButton"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"

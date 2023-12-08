@@ -11,6 +11,7 @@
     <string name="game">Игра</string>
     <string name="truth">Правда</string>
     <string name="action">Действие</string>
+    <string name="developers_title">Приложение разработано \nдружественной ассоциацией</string>
     <string name="change">Изменить</string>
     <string name="lets_go">Начали!</string>
     <string name="first_page">Первая страница</string>
@@ -39,7 +40,7 @@
     <string name="place_feedback">Перейти к оценке</string>
     <string name="not_unique_name">Выберите другое имя для игрока</string>
     <string name="select_truth">Выбрать правду</string>
-    <string name="add_participants">Добавьте (b)участников(/b)</string>
+    <string name="add_participants">Добавьте\n участников</string>
     <string name="set_gender">Выберите пол</string>
     <string name="gender_male_short">М</string>
     <string name="gender_female_short">Ж</string>

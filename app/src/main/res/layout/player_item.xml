@@ -14,13 +14,20 @@
         <variable
             name="deleteClickListener"
             type="com.maxelfs.truthanddare.views.players.PlayerClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.maxelfs.truthanddare.viewmodels.PlayersSetupViewModel" />
+
+        <import type="com.maxelfs.truthanddare.models.Gender" />
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{() -> updateClickListener.onClick(player)}"
-        android:background="@drawable/background_players"
+
         android:layout_marginBottom="10dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp">
@@ -31,7 +38,8 @@
             android:layout_height="wrap_content"
             position="@{player.position}"
             android:textSize="20sp"
-            android:layout_marginStart="13dp"
+            android:fontFamily="@font/opensans"
+            android:textColor="@color/white"
             app:layout_constraintBaseline_toBaselineOf="@+id/nameEditText"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="1." />
@@ -43,6 +51,8 @@
             android:layout_marginStart="12dp"
             android:text="@{player.name}"
             android:textSize="20sp"
+            android:fontFamily="@font/opensans"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/positionText"
             app:layout_constraintTop_toTopOf="parent"
@@ -56,12 +66,53 @@
             android:textSize="20sp"
             android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintEnd_toStartOf="@+id/genderButton2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/gender"
             tools:text="@string/gender_male_short"
+            android:visibility="visible"
             tools:background="@drawable/background_gender_male_round" />
+
+        <ImageView
+            android:id="@+id/genderButton2"
+            android:layout_width="38dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/gender"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:paddingStart="5dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/genderButton1"
+            app:layout_constraintTop_toTopOf="parent"
+            targetGender="@{viewModel.editingPlayerGender}"
+            matchToGender="@{Gender.MALE}"
+            matchBackground="@{@drawable/ic_male}"
+            defaultBackground="@{@drawable/ic_male_select}"
+            android:onClick="@{() -> viewModel.setPlayerGender(Gender.MALE)}"
+            android:src="@drawable/ic_male" />
+
+        <ImageView
+            android:id="@+id/genderButton1"
+            android:layout_width="38dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/gender"
+            android:textSize="20sp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:paddingEnd="5dp"
+            android:paddingStart="0dp"
+            targetGender="@{viewModel.editingPlayerGender}"
+            matchToGender="@{Gender.FEMALE}"
+            matchBackground="@{@drawable/ic_female_select}"
+            defaultBackground="@{@drawable/ic_female}"
+            android:onClick="@{() -> viewModel.setPlayerGender(Gender.FEMALE)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_female" />
 
         <ImageButton
             android:id="@+id/deleteButton"
@@ -69,11 +120,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{() -> deleteClickListener.onClick(player)}"
-            app:srcCompat="@drawable/ic_delete"
+            app:srcCompat="@drawable/cross"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="15dp"
+            android:paddingStart="15dp"
             android:contentDescription="@string/cancel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

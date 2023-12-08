@@ -1,13 +1,19 @@
 package com.maxelfs.truthanddare.views.players
 
+import android.content.res.ColorStateList
+import android.content.res.Resources
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.maxelfs.truthanddare.R
 import com.maxelfs.truthanddare.models.Gender
+import kotlin.coroutines.coroutineContext
 
 @BindingAdapter(value = [ "targetGender", "matchToGender", "matchBackground", "defaultBackground" ])
 fun setClickableTextBackground(
@@ -24,6 +30,23 @@ fun setClickableTextBackground(
     }
 
     textView.background = resultBackground
+}
+
+@BindingAdapter(value = [ "targetGender", "matchToGender", "matchBackground", "defaultBackground" ])
+fun setClickableTextBackground(
+    imageView: ImageView,
+    targetGender: Gender?,
+    matchToGender: Gender,
+    matchBackground: Drawable,
+    defaultBackground: Drawable
+) {
+    val resultBackground = if (targetGender == matchToGender) {
+        matchBackground
+    } else {
+        defaultBackground
+    }
+
+   imageView.setImageDrawable(resultBackground)
 }
 
 @BindingAdapter("gender")

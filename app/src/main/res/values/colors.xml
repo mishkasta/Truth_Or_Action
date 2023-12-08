@@ -17,4 +17,10 @@
     <color name="emperor">#535353</color>
     <color name="mountain_meadow">#20CF5E</color>
     <color name="jungle_green">#26BA4F</color>
+    <color name="orange">#FF6534</color>
+    <color name="purple">#C700BF</color>
+    <color name="gray">#4c4c4c</color>
+    <color name="ping">#FF00ED</color>
+
+    <color name="male">#00B8FD</color>
 </resources>

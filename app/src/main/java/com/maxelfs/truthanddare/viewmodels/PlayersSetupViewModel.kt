@@ -86,7 +86,9 @@ class PlayersSetupViewModel @Inject constructor(
     }
 
     fun setPlayerGender(gender: Gender) {
+        println("testClick")
         _editingPlayerGender.value = gender
+
     }
 
     fun startUpdating(player: Player) {
