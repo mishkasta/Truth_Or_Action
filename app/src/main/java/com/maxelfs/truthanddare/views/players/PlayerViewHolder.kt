@@ -3,7 +3,10 @@ package com.maxelfs.truthanddare.views.players
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import com.maxelfs.truthanddare.R
 import com.maxelfs.truthanddare.databinding.PlayerItemBinding
+import com.maxelfs.truthanddare.models.Gender
 import com.maxelfs.truthanddare.models.Player
 import com.maxelfs.truthanddare.views.ViewHolderBase
 
@@ -22,6 +25,31 @@ internal class PlayerViewHolder private constructor (
         } else {
             View.GONE
         }
+
+        if(item.gender == Gender.MALE){
+            _binding.genderButtonMale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_male_select))
+            _binding.genderButtonFemale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_female))
+        }else{
+            _binding.genderButtonMale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_male))
+            _binding.genderButtonFemale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_female_select))
+        }
+
+        _binding.genderButtonMale.setOnClickListener {
+            if(item.gender == Gender.FEMALE){
+                _binding.genderButtonMale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_male_select))
+                _binding.genderButtonFemale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_female))
+                item.gender = Gender.MALE
+            }
+        }
+
+        _binding.genderButtonFemale.setOnClickListener{
+            if(item.gender == Gender.MALE){
+                _binding.genderButtonMale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_male))
+                _binding.genderButtonFemale.setImageDrawable(ContextCompat.getDrawable(_binding.root.context, R.drawable.ic_female_select))
+                item.gender = Gender.FEMALE
+            }
+        }
+
 
         _binding.executePendingBindings()
     }

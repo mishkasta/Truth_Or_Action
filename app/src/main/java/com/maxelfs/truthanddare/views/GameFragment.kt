@@ -1,12 +1,14 @@
 package com.maxelfs.truthanddare.views
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
+import com.maxelfs.truthanddare.R
 import com.maxelfs.truthanddare.databinding.FragmentGameBinding
 import com.maxelfs.truthanddare.viewmodels.GameViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GameFragment : FragmentBase<GameViewModel>() {
     private lateinit var _binding : FragmentGameBinding
-
+    lateinit var textToSpeech: TextToSpeech
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,6 +64,15 @@ class GameFragment : FragmentBase<GameViewModel>() {
         super.onStart()
 
         viewModel.initializeOrRestore()
+        textToSpeech = TextToSpeech(context, TextToSpeech.OnInitListener {
+            if(it != TextToSpeech.SUCCESS){
+                _binding.voiceButton.visibility = View.GONE
+            }
+        })
+
+        _binding.voiceButton.setOnClickListener {
+            textToSpeech.speak(_binding.actionText.text.toString(), TextToSpeech.QUEUE_FLUSH, null)
+        }
 
         val adRequest = AdRequest.Builder().build()
         _binding.adView.loadAd(adRequest)

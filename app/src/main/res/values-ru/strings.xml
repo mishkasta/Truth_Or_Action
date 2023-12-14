@@ -12,6 +12,8 @@
     <string name="truth">Правда</string>
     <string name="action">Действие</string>
     <string name="developers_title">Приложение разработано \nдружественной ассоциацией</string>
+    <string name="voice_text">Кликните для воспроизведения вопроса c помощью голоса</string>
+    <string name="text_start_game">Нажмите на кнопку “Правда” или “Действие”, также, вы можете использовать “Случайный выбор” (Кнопка ниже)</string>
     <string name="change">Изменить</string>
     <string name="lets_go">Начали!</string>
     <string name="first_page">Первая страница</string>

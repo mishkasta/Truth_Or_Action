@@ -27,10 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{() -> updateClickListener.onClick(player)}"
-
         android:layout_marginBottom="10dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        >
 
         <TextView
             android:id="@+id/positionText"
@@ -66,49 +65,39 @@
             android:textSize="20sp"
             android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/genderButton2"
+            app:layout_constraintEnd_toStartOf="@+id/genderButtonMale"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/gender"
             tools:text="@string/gender_male_short"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:background="@drawable/background_gender_male_round" />
 
         <ImageView
-            android:id="@+id/genderButton2"
+            android:id="@+id/genderButtonMale"
             android:layout_width="38dp"
             android:layout_height="48dp"
             android:contentDescription="@string/gender"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
+            android:scaleX="0.65"
+            android:scaleY="0.65"
             android:paddingStart="5dp"
             android:paddingEnd="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/genderButton1"
+            app:layout_constraintEnd_toStartOf="@+id/genderButtonFemale"
             app:layout_constraintTop_toTopOf="parent"
-            targetGender="@{viewModel.editingPlayerGender}"
-            matchToGender="@{Gender.MALE}"
-            matchBackground="@{@drawable/ic_male}"
-            defaultBackground="@{@drawable/ic_male_select}"
-            android:onClick="@{() -> viewModel.setPlayerGender(Gender.MALE)}"
             android:src="@drawable/ic_male" />
 
         <ImageView
-            android:id="@+id/genderButton1"
+            android:id="@+id/genderButtonFemale"
             android:layout_width="38dp"
             android:layout_height="48dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="@string/gender"
             android:textSize="20sp"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
+            android:scaleX="0.65"
+            android:scaleY="0.65"
             android:paddingEnd="5dp"
             android:paddingStart="0dp"
-            targetGender="@{viewModel.editingPlayerGender}"
-            matchToGender="@{Gender.FEMALE}"
-            matchBackground="@{@drawable/ic_female_select}"
-            defaultBackground="@{@drawable/ic_female}"
-            android:onClick="@{() -> viewModel.setPlayerGender(Gender.FEMALE)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/deleteButton"
             app:layout_constraintTop_toTopOf="parent"
@@ -123,8 +112,17 @@
             app:srcCompat="@drawable/cross"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:paddingStart="15dp"
             android:contentDescription="@string/cancel" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:background="#50FFFFFF"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

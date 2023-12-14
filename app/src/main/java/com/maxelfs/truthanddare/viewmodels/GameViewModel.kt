@@ -1,6 +1,7 @@
 package com.maxelfs.truthanddare.viewmodels
 
 import android.app.Application
+import android.speech.tts.TextToSpeech
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -26,6 +27,7 @@ class GameViewModel @Inject constructor(
     private lateinit var _currentPlayer : Player
     private val _currentPlayerName = MutableLiveData<String>()
     private val _actionText = MutableLiveData<String>()
+
     private val _isActivitySelected = MutableLiveData<Boolean>()
 
     private var _currentActivityType = MutableLiveData<ActivityType>()
@@ -53,6 +55,7 @@ class GameViewModel @Inject constructor(
     val navigateToPlayersSetupEvent: LiveData<Boolean> = _navigateToPlayersSetupEvent
 
 
+
     fun initializeOrRestore() {
         _adService.reloadInterstitial()
 
@@ -64,6 +67,8 @@ class GameViewModel @Inject constructor(
             }
         }
     }
+
+
 
     fun selectTruth() {
         selectActivity(ActivityType.TRUTH)
@@ -128,7 +133,6 @@ class GameViewModel @Inject constructor(
     fun onNavigatedToPlayersSetup() {
         _navigateToPlayersSetupEvent.value = false
     }
-
 
     private fun showInterstitialIfItsTime() {
         if (_activityChangesBeforeInterstitial > 0 && _playersBeforeInterstitial > 0) {

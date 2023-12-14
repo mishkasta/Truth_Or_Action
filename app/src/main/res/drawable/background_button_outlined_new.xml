@@ -6,21 +6,20 @@
                 android:startColor="#FF00ED"
                 android:endColor="#00B8FD" />
 
-            <corners android:radius="20dp" />
+            <corners android:radius="40dp" />
         </shape>
     </item>
-
     <item
         android:bottom="1dp"
         android:left="1dp"
         android:right="1dp"
         android:top="1dp">
-        <shape android:shape="rectangle">
+        <shape android:shape="rectangle" >
             <gradient
-                android:startColor="#07122a"
-                android:endColor="#07122a"
+                android:startColor="#161619"
+                android:endColor="#161619"
                 android:angle="90" />
-            <corners android:radius="19dp" />
+            <corners android:radius="40dp" />
         </shape>
     </item>
 </layer-list>

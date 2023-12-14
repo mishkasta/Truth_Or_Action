@@ -10,6 +10,8 @@
     <string name="truth">Truth</string>
     <string name="action">Action</string>
     <string name="developers_title">The application is developed \nby a friendly association</string>
+    <string name="voice_text">Click to play the question using voice</string>
+    <string name="text_start_game">Click on the "Truth” or “Action" button, also, you can use the “Random Selection" (Button below)</string>
     <string name="change">Change</string>
     <string name="lets_go">Let\'s go!</string>
     <string name="first_page">First page</string>

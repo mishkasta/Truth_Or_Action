@@ -45,6 +45,7 @@
             android:onClick="@{() -> viewModel.nextPage()}"
             app:layout_constraintBottom_toTopOf="@+id/page_two_indicator"
             app:layout_constraintEnd_toEndOf="parent"
+
             android:fontFamily="@font/druk_wide_cyr_medium"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/next" />
