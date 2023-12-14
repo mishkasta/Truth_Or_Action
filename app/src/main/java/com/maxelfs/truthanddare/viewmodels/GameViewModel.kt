@@ -72,6 +72,7 @@ class GameViewModel @Inject constructor(
 
     fun selectTruth() {
         selectActivity(ActivityType.TRUTH)
+
     }
 
     fun selectAction() {

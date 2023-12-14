@@ -12,6 +12,7 @@ import com.maxelfs.truthanddare.R
 import com.maxelfs.truthanddare.databinding.FragmentGameBinding
 import com.maxelfs.truthanddare.viewmodels.GameViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class GameFragment : FragmentBase<GameViewModel>() {
@@ -37,6 +38,7 @@ class GameFragment : FragmentBase<GameViewModel>() {
 
         viewModel.navigateToRateAppEvent.observe(viewLifecycleOwner) {
             if (it) {
+                textToSpeech.shutdown()
                 val direction = GameFragmentDirections.actionGameFragmentToRateAppFragment()
                 findNavController().navigate(direction)
                 viewModel.onNavigatedToRateApp()
@@ -45,6 +47,7 @@ class GameFragment : FragmentBase<GameViewModel>() {
 
         viewModel.navigateToPackSelectionEvent.observe(viewLifecycleOwner) {
             if (it) {
+                textToSpeech.shutdown()
                 val direction = GameFragmentDirections.actionGameFragmentToPackSelectionFragment()
                 findNavController().navigate(direction)
                 viewModel.onNavigatedToPackSelection()
@@ -53,6 +56,7 @@ class GameFragment : FragmentBase<GameViewModel>() {
 
         viewModel.navigateToPlayersSetupEvent.observe(viewLifecycleOwner) {
             if (it) {
+                textToSpeech.shutdown()
                 val direction = GameFragmentDirections.actionGameFragmentToPlayersSetupFragment()
                 findNavController().navigate(direction)
                 viewModel.onNavigatedToPlayersSetup()
@@ -64,17 +68,31 @@ class GameFragment : FragmentBase<GameViewModel>() {
         super.onStart()
 
         viewModel.initializeOrRestore()
-        textToSpeech = TextToSpeech(context, TextToSpeech.OnInitListener {
-            if(it != TextToSpeech.SUCCESS){
+        textToSpeech = TextToSpeech(context) {
+            if (it != TextToSpeech.SUCCESS) {
                 _binding.voiceButton.visibility = View.GONE
+            } else {
+                val lang = context!!.getString(R.string.current_locale)
+                if (lang == "en") {
+                    textToSpeech.language = Locale.ENGLISH
+                } else if (lang == "ru") {
+                    textToSpeech.language = Locale.forLanguageTag("ru")
+                }
             }
-        })
+        }
 
         _binding.voiceButton.setOnClickListener {
             textToSpeech.speak(_binding.actionText.text.toString(), TextToSpeech.QUEUE_FLUSH, null)
+
         }
 
         val adRequest = AdRequest.Builder().build()
         _binding.adView.loadAd(adRequest)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        textToSpeech.shutdown()
+
     }
 }

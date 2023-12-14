@@ -5,7 +5,8 @@ import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-const val PLACEHOLDER_PATTERN = "\\[\\[[a-zA-Z]+\\d*\\]\\]"
+//const val PLACEHOLDER_PATTERN = "\\[\\[[a-zA-Z]+\\d*\\]\\]"
+const val PLACEHOLDER_PATTERN = "((\\[\\[)|(\\(\\())[a-zA-Zа-яА-Я0-9\\;\\/]+\\d*?((\\]\\])|(\\)\\)))"
 
 @Entity(
     tableName = "variables",
