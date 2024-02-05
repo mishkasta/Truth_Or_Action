@@ -6,10 +6,10 @@
     <data>
         <variable
             name="pack"
-            type="com.maxelfs.truthanddare.views.packs.PackViewModel" />
+            type="com.maxelfs.truthandaction.views.packs.PackViewModel" />
         <variable
             name="startGameClickListener"
-            type="com.maxelfs.truthanddare.views.packs.PackClickListener" />
+            type="com.maxelfs.truthandaction.views.packs.PackClickListener" />
     </data>
 
     <LinearLayout
@@ -23,17 +23,6 @@
         android:onClick="@{() -> startGameClickListener.onClick(pack)}"
         android:orientation="vertical"
         tools:ignore="RtlSymmetry">
-
-        <ImageView
-            android:id="@+id/wing"
-            android:src="@drawable/wing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"
-            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/packIcon"

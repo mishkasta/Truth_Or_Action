@@ -5,21 +5,21 @@
     <data>
         <variable
             name="player"
-            type="com.maxelfs.truthanddare.models.Player" />
+            type="com.maxelfs.truthandaction.models.Player" />
 
         <variable
             name="updateClickListener"
-            type="com.maxelfs.truthanddare.views.players.PlayerClickListener" />
+            type="com.maxelfs.truthandaction.views.players.PlayerClickListener" />
 
         <variable
             name="deleteClickListener"
-            type="com.maxelfs.truthanddare.views.players.PlayerClickListener" />
+            type="com.maxelfs.truthandaction.views.players.PlayerClickListener" />
 
         <variable
             name="viewModel"
-            type="com.maxelfs.truthanddare.viewmodels.PlayersSetupViewModel" />
+            type="com.maxelfs.truthandaction.viewmodels.PlayersSetupViewModel" />
 
-        <import type="com.maxelfs.truthanddare.models.Gender" />
+        <import type="com.maxelfs.truthandaction.models.Gender" />
     </data>
 
 

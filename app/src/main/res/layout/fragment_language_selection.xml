@@ -6,13 +6,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.maxelfs.truthanddare.viewmodels.LanguageSelectionViewModel" />
+            type="com.maxelfs.truthandaction.viewmodels.LanguageSelectionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_splash_full_2">
+        android:layout_height="match_parent">
 
 
         <TextView
@@ -55,9 +54,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:fontFamily="@font/druk_wide_cyr_medium"
             android:text="@string/done" />
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

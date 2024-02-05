@@ -15,6 +15,7 @@
     <style name="PrimaryButton" parent="ButtonBase">
         <item name="android:background">@drawable/background_button_round</item>
         <item name="android:layout_width">240dp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 
@@ -50,9 +51,5 @@
         <item name="android:padding">0dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:minWidth">48dp</item>
-    </style>
-
-    <style name="Theme.TruthOrAction.Launcher">
-        <item name="android:windowBackground">@drawable/background_screen_start</item>
     </style>
 </resources>

@@ -2,9 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
     <item>
         <shape android:shape="rectangle" >
-            <gradient
-                android:startColor="#FF00ED"
-                android:endColor="#00B8FD" />
+            <solid android:color="@color/harlequin" />
 
             <corners android:radius="20dp" />
         </shape>
@@ -16,10 +14,7 @@
         android:right="1dp"
         android:top="1dp">
         <shape android:shape="rectangle">
-            <gradient
-                android:startColor="#07122a"
-                android:endColor="#07122a"
-                android:angle="90" />
+            <solid android:color="@color/black" />
             <corners android:radius="19dp" />
         </shape>
     </item>

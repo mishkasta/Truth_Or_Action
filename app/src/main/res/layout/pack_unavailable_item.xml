@@ -5,7 +5,7 @@
     <data>
         <variable
             name="pack"
-            type="com.maxelfs.truthanddare.views.packs.PackViewModel" />
+            type="com.maxelfs.truthandaction.views.packs.PackViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,17 +14,6 @@
         android:layout_marginBottom="10dp"
         packColor="@{pack.pack.color}"
         tools:ignore="RtlSymmetry">
-
-        <ImageView
-            android:id="@+id/wing"
-            android:src="@drawable/wing"
-            android:layout_marginStart="1dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/packIcon"

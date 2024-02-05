@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.maxelfs.truthanddare">
+    package="com.maxelfs.truthandaction">
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
     <application
         android:allowBackup="true"
-        android:name="com.maxelfs.truthanddare.TruthOrActionApplication"
+        android:name="com.maxelfs.truthandaction.TruthOrActionApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -17,15 +17,14 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1393730652614597~2834307661" />
+            android:value="ca-app-pub-1393730652614597~2949025526" />
 
 
         <activity
-            android:name="com.maxelfs.truthanddare.MainActivity"
+            android:name="com.maxelfs.truthandaction.MainActivity"
             android:exported="true"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.TruthOrAction.Launcher"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>

@@ -6,15 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.maxelfs.truthanddare.viewmodels.GameViewModel" />
+            type="com.maxelfs.truthandaction.viewmodels.GameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:background="@drawable/background_main_large">
+        android:paddingEnd="20dp">
 
         <ImageButton
             android:id="@+id/backButton"
@@ -78,7 +77,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/currentPlayerNameText"
                 isVisible="@{!viewModel.isActivitySelected()}"
                 app:srcCompat="@drawable/game_img"
-
                 android:contentDescription="@string/question_image" />
 
             <TextView
@@ -113,7 +111,7 @@
                 android:paddingTop="6dp"
                 android:paddingBottom="6dp"
                 android:layout_marginTop="17dp"
-                android:backgroundTint="#00B8FD"
+                android:backgroundTint="#111111"
                 app:layout_constraintTop_toBottomOf="@+id/currentPlayerNameText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +168,6 @@
                 android:fontFamily="@font/opensans"
                 android:gravity="center_horizontal"
                 android:textSize="13sp"
-
                 android:text="@string/voice_text"
                 isVisible="@{viewModel.isActivitySelected()}"
                 android:textColor="#AFAFAF"

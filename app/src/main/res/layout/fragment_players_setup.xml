@@ -6,15 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.maxelfs.truthanddare.viewmodels.PlayersSetupViewModel" />
+            type="com.maxelfs.truthandaction.viewmodels.PlayersSetupViewModel" />
 
-        <import type="com.maxelfs.truthanddare.models.Gender" />
+        <import type="com.maxelfs.truthandaction.models.Gender" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_main_large">
+        android:layout_height="match_parent">
 
         <ImageButton
             android:id="@+id/backButton"

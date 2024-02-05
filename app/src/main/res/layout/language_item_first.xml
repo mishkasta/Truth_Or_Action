@@ -6,11 +6,11 @@
     <data>
         <variable
             name="locale"
-            type="com.maxelfs.truthanddare.views.languageselection.LanguageViewModel" />
+            type="com.maxelfs.truthandaction.views.languageselection.LanguageViewModel" />
 
         <variable
             name="selectClickListener"
-            type="com.maxelfs.truthanddare.views.languageselection.LanguageClickListener" />
+            type="com.maxelfs.truthandaction.views.languageselection.LanguageClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
